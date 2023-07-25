@@ -41,7 +41,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: reidaruss/Calaxy_Project:latest
+          tags: reidaruss/calaxy_project:latest
 
       # - name: SCP files to server
       #   uses: appleboy/scp-action@v0.1.4
@@ -61,7 +61,7 @@ jobs:
           # password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             CI=true docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-            CI=true docker stop Calaxy_Project
+            CI=true docker stop calaxy_project
             CI=true docker image prune -a
-            CI=true docker pull reidaruss/Calaxy_Project:latest
-            CI=true docker run --name=Calaxy_Project -d -p 80:8000 reidaruss/Calaxy_Project:latest
+            CI=true docker pull reidaruss/calaxy_project:latest
+            CI=true docker run --name=calaxy_project -d -p 80:8000 reidaruss/calaxy_project:latest
