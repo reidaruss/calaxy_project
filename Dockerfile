@@ -27,6 +27,6 @@ RUN apt update
 RUN apt install -y libpq-dev
 ENV ROCKET_ADDRESS=0.0.0.0
 EXPOSE 8000
-COPY --from=0 /calaxy_project/target/release/Calax_Project /usr/local/bin/calaxy_project
+COPY --from=0 /calaxy_project/target/release/calax_Project /usr/local/bin/calaxy_project
 WORKDIR /usr/local/bin
 CMD ["calaxy_project"]
