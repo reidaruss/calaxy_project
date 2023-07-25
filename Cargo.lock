@@ -3,17 +3,6 @@
 version = 3
 
 [[package]]
-name = "Calaxy_Project"
-version = "0.1.0"
-dependencies = [
- "diesel",
- "dotenvy",
- "reqwest",
- "rocket",
- "rocket-multipart-form-data",
-]
-
-[[package]]
 name = "addr2line"
 version = "0.20.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -138,6 +127,17 @@ name = "bytes"
 version = "1.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "89b2fd2a0dcf38d7971e2194b6b6eebab45ae01067456a7fd93d5547a61b70be"
+
+[[package]]
+name = "calaxy_project"
+version = "0.1.0"
+dependencies = [
+ "diesel",
+ "dotenvy",
+ "reqwest",
+ "rocket",
+ "rocket-multipart-form-data",
+]
 
 [[package]]
 name = "cc"
