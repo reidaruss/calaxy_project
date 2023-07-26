@@ -48,12 +48,21 @@ There are several improvements that I would add given more time and actual use c
 - Better CICD
     This repo uses github actions to build the application and deploy to an AWS EC2 server. I ran into a small problem on dockerhub authentication in the last step of the gh action, as well as running the nightly build in the docker environment. I wasted allot of time trying to fix these issues, and if this was an actual application I would fix them.
 - Better Containerization
+
     As stated in the previous improvement, I had an issue running the nightly build of rust in the Docker container. Earlier versions of the application were successfully run inside of docker, but newer dependencies broke the docker build. Given more time I would fix this issue for easier local running as well as CICD. I would also bundle the postgress server into the same docker container or use docker-compose to spin up both environments for ease of use.
 - A Frontend
+
+
     Clearly this type of application is extrememly limited in its user base potential by requiring interaction via api requests. Given more time I would build a frontend to sit atop the application.
+
 - Scaling Solutions
+
+
     Given the assumption that this application would scale to millions of users, I would use the containerized solution within a kubernetes cluster to better handle traffic, and create load balancers in the cloud.
+
 - Better Error Handling
+
+
     Currently bad requests don't return very useful information on what went wrong, and given more time I would institute better request responses to give more verbose errors. The current server wont crash given a bad request, but will just return a 500 internal server error instead of useful information.
 
 
