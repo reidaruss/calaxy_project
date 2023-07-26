@@ -13,11 +13,11 @@ RUN apt update
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
 RUN rustup default nightly
-RUN cargo install diesel_cli --no-default-features --features postgres
+# RUN cargo install diesel_cli --no-default-features --features postgres
 RUN USER=root cargo new --bin calaxy_project
 WORKDIR "/calaxy_project"
 COPY . .
-RUN cargo build --release
+RUN cargo +nightly build --release
 RUN rm src/*.rs
 
 FROM ubuntu:latest
