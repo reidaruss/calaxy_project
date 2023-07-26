@@ -149,6 +149,21 @@ impl Comment {
 
         comments
     }
+
+    async fn delete_comments_by_user(username: String, pool: &Pool<Postgres>) -> Result<(),sqlx::Error> {
+        // let q = format!("select * from story where username = {}", username);
+
+        let insert = sqlx::query_as!(
+            Comment,
+            "DELETE FROM comment WHERE username = $1",
+            username
+        ).execute(pool)
+        .await.expect("Unable to delete comments by user");
+
+
+
+        Ok(())
+    }
 }
 
 
@@ -336,6 +351,27 @@ async fn create_comment(pool: &State<Pool<Postgres>>,content_type: &ContentType 
 }
 
 
+#[delete("/",  data = "<data>")]
+async fn delete_comments_by_user(pool: &State<Pool<Postgres>>,content_type: &ContentType , data: Data<'_>) -> Result<String, Status> {
+    let options = MultipartFormDataOptions::with_multipart_form_data_fields(vec![
+        MultipartFormDataField::text("username")
+        
+        ]);
+    let mut multipart_form_data = MultipartFormData::parse(content_type, data, options).await.unwrap();
+    let username= multipart_form_data.texts.remove("username").unwrap().remove(0).text.into();
+
+    // let user = User::insert_user_to_db(username,password, &pool).await;
+    let res: Vec<Comment> = Comment::delete_comments_by_user(username,&pool).await;
+
+
+
+
+    match res {
+        Ok(_user) => Ok("Success".to_string()),
+        _ => Err(Status::NotFound)
+    }
+    
+}
 // END COMMENTS
 
 
