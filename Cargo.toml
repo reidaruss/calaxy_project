@@ -9,5 +9,9 @@ edition = "2021"
 rocket = { version = "=0.5.0-rc.3"}
 reqwest = "0.11"
 rocket-multipart-form-data = {version = "0.10.5"}
-diesel = { version = "2.1.0", features = ["postgres"] }
-dotenvy = "0.15"
+# diesel = { version = "2.1.0", features = ["postgres"]}
+dotenv = "0.15"
+sqlx = { version = "0.6", features = [ "runtime-tokio-rustls", "postgres", "macros" ] }
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0.175", features = ["derive"] }
+serde_json = "1.0"
