@@ -54,97 +54,74 @@ All endpoints that return data return it in json format.
 
 GET
 `/get_all_users`
-
 Params:
 None
 
 POST
 `/create_user`
-
 Params:
 - username : String
 - password : String
 
 DELETE
 `/delete_user`
-
 Params:
 - username : String
 
 ### STORY Endpoints
 
 GET
-
 `/get_stories_by_user`
-
 Params:
 - username : String
 
 POST
-
 `/create_story`
-
 Params:
 - username : String
 - content : String
 
 DELETE
-
 `/delete_story`
-
 Params:
 - story_id : i32
 
 DELETE
-
 `/delete_stories_by_user`
-
 Params:
 - username : String
 
 ### COMMENT Endpoints
 
 GET
-
 `/get_comments_by_user`
-
 Params:
 - username : String
 
 GET
-
 `/get_comments_by_story`
-
 Params:
 - story_id : i32
 
 POST
-
 `/create_comment`
-
 Params:
 - username : String
 - story_id : i32
 - content : String
 
 DELETE
-
 `/delete_comment`
-
 Params:
 - comment_id : i32
 
 DELETE
-
 `/delete_all_story_comments`
-
 Params:
 - story_id : i32
 
 DELETE
-
 `/delete_comments_by_user`
-
 Params:
 - username : String
 
