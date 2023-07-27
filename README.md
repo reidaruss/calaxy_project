@@ -16,6 +16,8 @@ To create the tables inside of the postgres server, you will need the sqlx cli t
 `cargo install sqlx-cli`
 
 ### Starting Postgres Server
+**YOU MUST HAVE THE POSTGRES SERVER RUNNING BEFORE BUILDING THE ROCKET PROGRAM, OTHERWISE IT WILL NOT COMPILE**
+
 Run the following command to download and install a boilerplate postgres server. Leave the paramaters as they are because these specific values are referenced in the backend.
 `docker run -p 5432:5432 --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres`
 Of course if you wanted this to be more secure you would change these values to a more secure version, but for ease of example use they have been kept simple.
