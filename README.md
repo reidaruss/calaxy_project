@@ -36,9 +36,117 @@ Or this:
 
 Once the the server spins up, you should see a message like this:
 
-
+![Alt text](image.png)
 
 # Endpoints
+
+All endpoints that accept data (including GET requests) accept data as multipart form data. Here is an example how to do this in Postman:
+
+![Alt text](image-1.png)
+
+You can also make any of these requests using curl, but I find postman to be more organized and easier to use / test with.
+
+To send a request to any endpoint, make sure the url is http://<ip-address>:8000/<endpoint>. If you are running this locally, the ip-address will be `127.0.0.1`.
+
+All endpoints that return data return it in json format.
+
+### USER Endpoints
+
+GET
+`/get_all_users`
+
+Params:
+None
+
+POST
+`/create_user`
+
+Params:
+- username : String
+- password : String
+
+DELETE
+`/delete_user`
+
+Params:
+- username : String
+
+### STORY Endpoints
+
+GET
+
+`/get_stories_by_user`
+
+Params:
+- username : String
+
+POST
+
+`/create_story`
+
+Params:
+- username : String
+- content : String
+
+DELETE
+
+`/delete_story`
+
+Params:
+- story_id : i32
+
+DELETE
+
+`/delete_stories_by_user`
+
+Params:
+- username : String
+
+### COMMENT Endpoints
+
+GET
+
+`/get_comments_by_user`
+
+Params:
+- username : String
+
+GET
+
+`/get_comments_by_story`
+
+Params:
+- story_id : i32
+
+POST
+
+`/create_comment`
+
+Params:
+- username : String
+- story_id : i32
+- content : String
+
+DELETE
+
+`/delete_comment`
+
+Params:
+- comment_id : i32
+
+DELETE
+
+`/delete_all_story_comments`
+
+Params:
+- story_id : i32
+
+DELETE
+
+`/delete_comments_by_user`
+
+Params:
+- username : String
 
 
 # Future Improvements
@@ -66,4 +174,6 @@ There are several improvements that I would add given more time and actual use c
     Currently bad requests don't return very useful information on what went wrong, and given more time I would institute better request responses to give more verbose errors. The current server wont crash given a bad request, but will just return a 500 internal server error instead of useful information.
 
 
+- SQL/Malicious Code Injection Protection
 
+    Handling of malicious code injection would be important in a real application.
