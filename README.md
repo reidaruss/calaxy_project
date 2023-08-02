@@ -48,7 +48,7 @@ All endpoints that accept data (including GET requests) accept data as multipart
 
 You can also make any of these requests using curl, but I find postman to be more organized and easier to use / test with.
 
-To send a request to any endpoint, make sure the url is http://<ip-address>:8000/<endpoint>. If you are running this locally, the ip-address will be `127.0.0.1`.
+To send a request to any endpoint, make sure the url is http://ip-address:8000/<endpoint>. If you are running this locally, the ip-address will be `127.0.0.1`.
 
 All endpoints that return data return it in json format.
 
